@@ -1,0 +1,174 @@
+
+/* @@ FONT IMPORT  */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Playfair+Display:wght@600&family=Poltawski+Nowy&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+Pro&display=swap');
+
+
+
+.title-content-container p.is-editor-empty:first-child::before {
+    color: #9c9c9c;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+    font-size:30px;
+    line-height: 40px;
+    font-family: 'Poltawski Nowy', serif;
+    font-style: italic;
+    /* font-weight:bolder; */
+    letter-spacing: 2px;
+    text-transform: none;
+  }
+  .writing-content-container p.is-editor-empty:first-child::before {
+    color: #9c9c9c;
+    content: attr(data-placeholder);
+    float: left;
+    height: 0;
+    pointer-events: none;
+    font-size: 21px;
+    line-height: 33px;
+    font-family: 'Poltawski Nowy', serif;
+    font-style: italic;
+    /* font-weight:bolder; */
+    letter-spacing: 2px;
+    text-transform: none;
+  }
+  .fixed-writing-menu-bar{
+    bottom: 0px;
+    border-top:1px solid #cecece;
+    margin-bottom:0;
+    /* margin-left:25%; */
+    position: fixed;
+    z-index: 11111;
+    /* background-color:rgb(243, 243, 243); */
+  }
+  .menu-bar{
+    width: 60%;
+    padding:8px 270px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* border-radius: 50px; */
+  }
+  .menu-bar button{
+    border:1px solid rgb(243, 243, 243);
+    border-radius: 4px;
+    font-size: 21px;
+    margin-right: 15px;
+    outline: none;
+    background: none;
+    color:#292929;
+    cursor: pointer;
+    padding:2px 3px;
+    font-weight: bold;
+
+  }
+  button.is-active{
+      background-color:rgb(231,231,231);
+      border:1px solid #292929;
+      border-radius: 4px; 
+  }
+  .writing-right-buttons-div{
+    /* margin-left:2%; */
+  }
+  
+  .editor-container{
+    /* border:1px solid red; */
+    margin-top:56px;
+    width: 80%;
+    height:520px;
+    display: inline-block;
+    overflow-y: auto;
+    border-left:1px solid #ececec;
+    border-right:1px solid #ececec;
+    
+  }
+  .editor-container::-webkit-scrollbar {
+    background-color: #F5F5F5;
+    width: 6px;
+  }
+  .editor-container::-webkit-scrollbar-thumb {
+    background-color: #c9c7c7;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .editor-container::-webkit-scrollbar-thumb:hover {
+    background-color: #292929;
+  }
+  
+  .title-content-container{
+    /* border:1px solid green; */
+    width: 80%;
+    font-size:30px;
+    line-height: 40px;
+    text-transform:capitalize;
+    font-family: 'Poltawski Nowy', serif;
+    height: auto;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    padding: 20px 0px ;
+    margin: 0px auto;
+  }
+  .ProseMirror,
+  .writing-content-container{
+    /* border:1px solid brown ; */
+    width: 80%;
+    height: auto;
+    font-size: 21px;
+    line-height: 33px;
+    font-family: 'Poltawski Nowy', serif;
+    color: #292727;
+    padding: 10px 0px ;
+    margin: 0px auto;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+
+  .ProseMirror {
+      /* border:1px solid red;
+      height: 100vh;
+      padding: 0px 150px;
+      font-size: 21px;
+      line-height: 33px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #292727; */
+  }
+  .ProseMirror:focus{
+      outline: none;
+  }
+  .ProseMirror > * + * {
+        margin-top: 0.10em;
+        border:none;      
+      }
+      .ProseMirror ul,
+      .ProseMirror ol {
+        padding-left: 35px;
+      }
+    
+      .ProseMirror h2
+      {
+        line-height: 3.5rem;
+        font-size:30px;
+        font-style:normal;
+        font-weight: lighter; 
+      } 
+      .ProseMirror img{
+        max-width: 700px;
+        margin:25px 0px;
+      }
+      .ProseMirror blockquote {
+        padding-left:10px;
+        border-left: 3px solid #292727;
+        font-style:italic;
+        color:#454545;
+        margin-left:0px;
+        font-size: 21px;
+        line-height: 35px;
+         
+      }
+    
+  
+      
+     
+        
+    

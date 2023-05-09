@@ -1,0 +1,107 @@
+/* *{
+    margin: 0px;
+} */
+.header-div-writing-page{
+    height: 55px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-bottom:1px solid #ececec;
+
+}
+.header-left-writing-page{
+    width: 500px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+.logo-img-writing-page{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20%;
+}
+.header-right-writing-page{
+    width: 25%;
+    height: 53px;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+.publish-button-writing-page{
+    margin-right: 30px;
+    font-family: sans-serif;
+    font-size:14px;
+    border-radius: 30px;
+    padding: 3px 10px;
+    background-color: white;
+    color: #757575;
+    border:1px solid #757575;
+    cursor: pointer;
+}
+.publish-button-writing-page:hover{
+    border-color: #292929;
+    color:#292929;
+}
+.three-dot-writing-page{
+    margin-right: 30px;
+    width: 21px;
+    height: 21px;
+    color:#757575;
+    font-size:22px;
+    cursor:pointer;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+.three-dot-writing-page:hover{
+    color:#292929;
+}
+.dib{
+    display: inline-block;
+}
+.div-notification-writing-page{
+    margin-right: 30px;
+}
+.notification-icon-writing-page{
+    width: 21px;
+    height: 21px;
+    background-image: url(../../../public/images/notificationLight.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.notification-icon-writing-page:hover{
+    background-image: url(../../../public/images/notificationDark.png);
+}
+.profil-img-side-writing-page{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.profil-button-writing-page{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-image: url(../../../public/images/profil.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 5px;
+}
+.profile-arrow-down-writing-page{
+    font-size: 9px;
+    color:#757575;
+}
+.profil-img-side-writing-page:hover .profile-arrow-down{
+    color:#292929;
+}
+
+
+
+
+

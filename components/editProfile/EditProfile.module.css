@@ -20,7 +20,7 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border:1px solid #757575;
+    object-fit: cover;
     cursor: pointer;
 }
 .edit-profile-photo-exp{

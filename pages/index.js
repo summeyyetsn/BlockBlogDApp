@@ -59,7 +59,7 @@ const index = () => {
       {/* <IPFStoGetIMG/> */}
       {/* <IPFSTitleText/> */}
 
-      {/* <EditProfile/> */}
+      <EditProfile/>
 
       {/* @@@........ PAGES ............@@@ */}
       {/* <Home/> */}

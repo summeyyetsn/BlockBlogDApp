@@ -1,8 +1,12 @@
 import React, { useRef, useState } from 'react';
 import styles from './EditProfile.module.css';
 import axios from 'axios';
+import ProfilPicture from './ProfilPicture';
 
 const EditProfile = () => {
+    const [profilePicture, setProfilePicture] = useState('');
+    const [profilPictureIPFS, setProfilPictureIPFS] = useState('');
+
     const [name, setName] = useState('');
     const [bio, setBio] = useState('');
     const [facebook, setFacebook] = useState('');
@@ -10,9 +14,42 @@ const EditProfile = () => {
     const [youtube, setYoutube] = useState('');
     const [linkedin, setLinkedin] = useState('');
 
+    const handleImageChange = (event) => {
+        event.preventDefault();
+        const selectedFile = event.target.files[0];
+        if (selectedFile) {
+            const reader = new FileReader();
+            reader.readAsDataURL(selectedFile);
+            reader.onload = async () => {
+                setProfilePicture(reader.result);
+                const profilePicture = reader.result;
+                const uploadArray = [{
+                    path: 'profil-picture.png',
+                    content: profilePicture
+                }];
+                console.log(uploadArray);
+                try {
+
+                    const response = await axios({
+                        method: "POST",
+                        url: "/api/upload/blogpost",
+                        data: uploadArray,
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    })
+                    setProfilPictureIPFS(response.data[0].path);
+                }
+                catch (error) {
+                    console.log(error)
+                }
+            }
+        };
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = { name, bio, facebook, twitter, youtube, linkedin };
+        const formData = { name, bio, facebook, twitter, youtube, linkedin, profilPictureIPFS };
         const jsonData = JSON.stringify(formData);
         console.log(jsonData);
         if (jsonData) {
@@ -52,7 +89,10 @@ const EditProfile = () => {
                 <div className={styles['edit-profile-title']}>Profile Information</div>
 
                 <div className={styles['edit-profile-photo-side']}>
-
+                    <label htmlFor="profile-picture-input">
+                        <img src={profilePicture || '/images/profil.jpg'} className={styles['edit-profile-photo']} />
+                    </label>
+                    <input id="profile-picture-input" type="file" accept="image/*" onChange={handleImageChange} style={{ display: 'none' }} />
                 </div>
 
                 <div className={styles['edit-profile-name-side']}>

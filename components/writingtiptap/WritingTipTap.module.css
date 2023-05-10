@@ -75,12 +75,14 @@
   .editor-container{
     /* border:1px solid red; */
     margin-top:56px;
+    margin-left:10%;
     width: 80%;
     height:520px;
     display: inline-block;
     overflow-y: auto;
     border-left:1px solid #ececec;
     border-right:1px solid #ececec;
+    
     
   }
   .editor-container::-webkit-scrollbar {

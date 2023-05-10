@@ -26,6 +26,8 @@ import Home from './Home';
 import Writing from '../pages/Writing';
 import Profile from '../pages/Profile';
 import PostDetail from '../pages/PostDetail';
+import Account from './Account';
+import EditProfile from '@/components/editProfile/EditProfile';
 
 const index = () => {
   return (
@@ -57,11 +59,15 @@ const index = () => {
       {/* <IPFStoGetIMG/> */}
       {/* <IPFSTitleText/> */}
 
+      {/* <EditProfile/> */}
+
       {/* @@@........ PAGES ............@@@ */}
-      <Home/>
+      {/* <Home/> */}
       {/* <Writing/> */}
       {/* <Profile/> */}
       {/* <PostDetail/> */}
+
+      {/* <Account/> */}
     </div>
   )
 }

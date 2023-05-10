@@ -37,7 +37,7 @@
     
 }
 .profile-photo{
-    background-image: url(../../public/images/profil.jpg);
+    background-image: url(../../../public//images/profil.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

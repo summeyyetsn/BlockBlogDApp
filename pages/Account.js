@@ -2,13 +2,13 @@ import React from 'react'
 import MainNavbar from '../components/Navbar/mainNavbar/MainNavbar';
 import BlogPostCard from '../components/BlogPost/blogPostCard/BlogPostCard';
 import BlogPostProfile from '@/components/BlogPost/blogPostCard/BlogPostProfile';
-import Profil from '../components/profil/Profil';
+import ProfilAccount from '../components/profilAccount/ProfilAccount';
 import Followers from '../components/followers/Followers';
 import Following from '../components/following/Following';
 import styles from "../styles/Profile.module.css"
 
 
-const Profile = () => {
+const Account = () => {
   return (
     <div>
         <div className={styles["container"]}>
@@ -18,12 +18,12 @@ const Profile = () => {
             <div className={styles["content"]}>
             <main className={`${styles["main-content"]} ${styles["profilePage-right"]}`}>
                 <BlogPostCard/>
-                <BlogPostProfile/>
+                {/* <BlogPostProfile/> */}
             </main>
                 <aside className={`${styles["sidebar"]} ${styles["profilePage-left"]}`}>
-                    <Profil/>
-                    <Following/>
-                    <Followers/>
+                    <ProfilAccount/>
+                    {/* <Following/>
+                    <Followers/> */}
                 </aside>
         </div>
     </div>
@@ -31,4 +31,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Account

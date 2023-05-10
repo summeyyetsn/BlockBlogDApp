@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './Profil.module.css';
+import styles from './ProfilAccount.module.css';
 import {TbCoffee} from 'react-icons/tb';
 import Link from 'next/link';
 
-const Profil = () => {
+const ProfilAccount = () => {
   return (
     <div>
         <div className={styles["profile-right-div"]}>
@@ -15,9 +15,9 @@ const Profil = () => {
 
             <span className={styles["text-profil"]}>Jhonny Bravo</span>
             <div className={styles["span-follow"]}> <span>84.2K Followers</span>  </div>
-            <p className={styles["text-explanation"]}>Lorem ipsum dolor sit amet. Ea autem porro hic sint sunt aut eaque eius est veritatis iste ut consequatur odio aut omnis alias. </p>
-            <button className={styles["button-follow"]}>Follow</button>
-            <button className={styles["button-order-cofee"]}>Order Coffe  <TbCoffee /></button> 
+            <p className={styles["edit-profile"]}>Edit Profile </p>
+            
+             
           </div>
         </div>
     </div>
@@ -25,4 +25,4 @@ const Profil = () => {
   )
 }
 
-export default Profil
+export default ProfilAccount

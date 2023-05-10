@@ -10,13 +10,6 @@ import { AiOutlineUser } from 'react-icons/ai';
 
 const MainNavbar = () => {
   const [open, setOpen] = useState(false);
-  const menuItems = [
-    { name: 'Profile', icon: <AiOutlineUser className="profile-menu-icons" /> },
-    { name: 'Library', icon: <IoBookmarksOutline className="profile-menu-icons" /> },
-    { name: 'Stories', icon: <HiOutlineDocumentText className="profile-menu-icons" /> },
-    { name: 'Settings', icon: <IoSettingsOutline className="profile-menu-icons" /> },
-  ];
-
   const menuRef = useRef();
   const imgRef = useRef();
 
@@ -72,61 +65,68 @@ const MainNavbar = () => {
     };
   }, [prevScrollPos]);
 
-   return (
+  return (
     <nav>
-        <div className={styles["header-div"]} ref={navbarRef}>
-            <div className={styles['header-left']}>
+      <div className={styles["header-div"]} ref={navbarRef}>
+        <div className={styles['header-left']}>
 
-            
+
           <Link href="/">
             <img src='/images/logoBlack.png' alt='logo' className={styles['logo-img']} />
-          </Link>  
-            <div className={styles['header-search']}>
-                <IoSearchOutline className={styles['search-icon']}/>
-                <input type='text' placeholder='Search Post' className={styles['search-box']}></input>
-            </div>
-            </div>
-        
-
-            <div className={styles["header-right"]}>
-              <div className={styles["dib"]}>
-                <Link href="Writing" className='my-link'>
-                  <div className={styles['write-side']}>
-                    <div className={styles['write-icon']}></div>
-                    <span className={styles['write-icon-text']}>Write</span>
-                  </div>
-                </Link>
-              </div>
-                <div className={styles["dib div-notification"]}>
-                    <a href="" className={styles["href-design"]}>
-                      <div className={styles['notification-icon']}></div>
-                    </a>
-                </div>
-
-                {/* <div className={styles["profil-img-side"]}>
-                  <div className={styles["profil-button"]}></div>
-                  <RiArrowDropDownLine className={styles['profile-arrow-down']}/>
-               </div>     */}
-
-                <div className={styles['profile-dropdown-menu-container']}>
-                  <div className={styles["profile-dropdown-menu"]}>
-                    <div ref={imgRef} className={styles["profile-image"]} onClick={handleClick}></div>
-                    {open && (
-                      <ul className={styles["profile-menu-text-container"]} ref={menuRef}>
-                        {menuItems.map((item) => (
-                          <li className={styles['profile-menu-text']} key={item.name} onClick={() => handleMenuClick(item.name)}>
-                            {item.icon}
-                            <span>{item.name}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-
-
-            </div>
+          </Link>
+          <div className={styles['header-search']}>
+            <IoSearchOutline className={styles['search-icon']} />
+            <input type='text' placeholder='Search Post' className={styles['search-box']}></input>
+          </div>
         </div>
+
+
+        <div className={styles["header-right"]}>
+          <div className={styles["dib"]}>
+            <Link href="Writing" className='my-link'>
+              <div className={styles['write-side']}>
+                <div className={styles['write-icon']}></div>
+                <span className={styles['write-icon-text']}>Write</span>
+              </div>
+            </Link>
+          </div>
+          <div className={styles["dib div-notification"]}>
+            <a href="" className={styles["href-design"]}>
+              <div className={styles['notification-icon']}></div>
+            </a>
+          </div>
+          <div className={styles['profile-dropdown-menu-container']}>
+            <div ref={imgRef} className={styles["profile-image"]} onClick={handleClick}></div>
+            <div className={styles["profile-dropdown-menu"]}>
+
+              {open && (
+                <ul className={styles["profile-menu-text-container"]} ref={menuRef}>
+
+                  <li className={styles['profile-menu-text-li']} >
+                    <div className={styles['profile-dd-icons']}><AiOutlineUser /> </div>
+                    <div className={styles['profile-dd-text']}>Profile</div>
+                  </li>
+
+                  <li className={styles['profile-menu-text-li']} >
+                    <div className={styles['profile-dd-icons']}><IoBookmarksOutline /> </div>
+                    <div className={styles['profile-dd-text']}>Library</div>
+                  </li>
+
+                  <li className={styles['profile-menu-text-li']} >
+                    <div className={styles['profile-dd-icons']}><HiOutlineDocumentText /> </div>
+                    <div className={styles['profile-dd-text']}>Stories</div>
+                  </li>
+
+                  <li className={styles['profile-menu-text-li']} >
+                    <div className={styles['profile-dd-icons']}><IoSettingsOutline /> </div>
+                    <div className={styles['profile-dd-text']}>Settings</div>
+                  </li>
+                </ul>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
     </nav>
   )
 }

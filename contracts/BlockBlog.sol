@@ -13,7 +13,7 @@ contract BlockBlog {
     }
 
     mapping (address => string) userProfile_uri; //uri where user information is stored in IPFS
-    mapping (string => uint) coffeePrices; 
+    
 
     mapping(address => mapping(uint => bool)) public onReadingList; //mapping(user_wallet_address => mapping(postId => t/f)) public onReadingList;
     mapping(address => mapping(uint => bool)) public isFavorite;  //mapping(user_wallet_address => mapping(postId => t/f)) public isFavorite;
@@ -22,11 +22,6 @@ contract BlockBlog {
     mapping(uint => BlogPost) public idToBlogPosts; 
 
     constructor() {
-    // coffeePrices["Short"] = 10000000000000000; // 0.01 ether
-    // coffeePrices["Tall"] = 20000000000000000; // 0.02 ether
-    // coffeePrices["Grande"] = 30000000000000000; // 0.03 ether
-    // coffeePrices["Venti"] = 40000000000000000; // 0.04 ether
-    // coffeePrices["Trenta"] = 50000000000000000; // 0.05 ether
     }
 
     // @@@ EVENTS @@@
@@ -52,11 +47,7 @@ contract BlockBlog {
         _;
     }
 
-     modifier checkPrice(string memory size) {
-        require(coffeePrices[size] > 0, "Invalid size");
-        require(msg.value >= coffeePrices[size], "Not enough Ether sent");
-        _;
-    }
+   
 
     // @@@ BLOG POST FUNCTIONS @@@
     function createBlogPost(string calldata _postUri) public returns (uint) {
@@ -104,9 +95,10 @@ contract BlockBlog {
         emit EditBlogPost(_postId, msg.sender, _postUri);
     }
 
-    // function orderCoffee(string memory size, address payable _to) public payable checkPrice(size) {
-    //     _to.transfer(msg.value); // Gönderilen Eth _to adresine transfer ediliyor
-    // }
+    function orderCoffee( address payable _to) public payable {
+        require(msg.value > 0);
+        _to.transfer(msg.value); // Gönderilen Eth _to adresine transfer ediliyor
+    }
 
     function updateReadingList(uint _postId) public isExistBlogPost(_postId) {
         onReadingList[msg.sender][_postId] = !onReadingList[msg.sender][_postId];
@@ -174,6 +166,13 @@ contract BlockBlog {
             post.likes,
             post.post_uri
         );
+    }
+    function userProfileUri(string memory uri) public {
+        userProfile_uri[msg.sender] = uri;
+    }
+
+    function getUserProfileUri(address userAddress) public view returns (string memory) {
+        return userProfile_uri[userAddress];
     }
 
     

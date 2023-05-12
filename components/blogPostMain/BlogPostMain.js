@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../writingtiptap/WritingTipTap.module.css';
 import axios from 'axios';
 
-const BlogPostMain = ({ ipfsUri }) => {
+const BlogPostMain = ({ ipfsUri}) => {
 
   const [ipfsData, setIpfsData] = useState("");
 
@@ -20,8 +20,6 @@ const BlogPostMain = ({ ipfsUri }) => {
   return (
     <div>
       <div className={`${styles["ProseMirror"]} ${styles["blog-post-content-container"]}`} dangerouslySetInnerHTML={{ __html: ipfsData }} />
-      
-      {/* { ipfsData } */}
     </div>
   )
 }

@@ -28,6 +28,10 @@ import Profile from '../pages/Profile';
 import PostDetail from '../pages/PostDetail';
 import Account from './Account';
 import EditProfile from '@/components/editProfile/EditProfile';
+import AccountPostList from '@/components/accountPostList/AccountPostList';
+import BlogPostProfile from '@/components/BlogPost/blogPostCard/BlogPostProfile';
+import Stories from '@/components/stories/Stories';
+import ReadingList from '@/components/readingList/ReadingList';
 
 const index = () => {
   return (
@@ -44,7 +48,7 @@ const index = () => {
       {/* <BlogPostOwner/> */}
 
       {/* @@@........ OTHER COMPONENTS ............@@@ */}
-      {/* <Profile/> */}
+      {/* <Profil/> */}
        {/* <TipTap/> */}
       {/* <TagSlider/> */}
       {/* <Followers/> */}
@@ -52,6 +56,7 @@ const index = () => {
       {/* <LatestPosts/> */}
       {/* <RecommendTopics/> */}
       {/* <BlogPostMain/> */}
+      {/* <BlogPostOwner/> */}
 
       {/* <BlogPostIPFS/> */}
       {/* <BlogPostMain/> */}
@@ -59,7 +64,11 @@ const index = () => {
       {/* <IPFStoGetIMG/> */}
       {/* <IPFSTitleText/> */}
 
-      <EditProfile/>
+      {/* <EditProfile/> */}
+      {/* <AccountPostList/> */}
+      {/* <BlogPostProfile/> */}
+      <Stories/>
+      {/* <ReadingList/> */}
 
       {/* @@@........ PAGES ............@@@ */}
       {/* <Home/> */}

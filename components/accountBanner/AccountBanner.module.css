@@ -1,0 +1,15 @@
+.banner-container{
+    font-family: sans-serif;
+    border-bottom: 1px solid #e2e2e2;
+    width: 80%;
+    overflow-y: auto;
+    margin: 20px auto 20px auto;
+}
+.banner-title{
+    font-size:42px;
+    line-height: 52px;
+    font-weight: 700;
+    color:#292929;
+    padding:25px 0px;
+
+}

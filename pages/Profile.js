@@ -17,7 +17,7 @@ const Profile = () => {
             </header>
             <div className={styles["content"]}>
             <main className={`${styles["main-content"]} ${styles["profilePage-right"]}`}>
-                <BlogPostCard/>
+                {/* <BlogPostCard/> */}
                 <BlogPostProfile/>
             </main>
                 <aside className={`${styles["sidebar"]} ${styles["profilePage-left"]}`}>

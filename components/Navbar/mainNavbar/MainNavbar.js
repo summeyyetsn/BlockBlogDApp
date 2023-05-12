@@ -6,9 +6,18 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { IoBookmarksOutline, IoSettingsOutline } from 'react-icons/io5';
 import { HiOutlineDocumentText } from 'react-icons/hi';
 import { AiOutlineUser } from 'react-icons/ai';
-
+import useBlockBlogFunctions from '@/hooks/useBlockBlogFunctions';
+import useWallet from '@/hooks/useWallet';
+import axios from 'axios';
 
 const MainNavbar = () => {
+
+  const { getUserProfileUri, profileUri } = useBlockBlogFunctions();
+
+  const [profileImgUri, setProfileImgUri] = useState('');
+
+  const { wallet } = useWallet();
+
   const [open, setOpen] = useState(false);
   const menuRef = useRef();
   const imgRef = useRef();
@@ -65,6 +74,23 @@ const MainNavbar = () => {
     };
   }, [prevScrollPos]);
 
+  useEffect(() => {
+    if (wallet.address && ! profileUri) {
+      getUserProfileUri(wallet.address);
+    }
+    if(profileUri){
+      axios.get(profileUri)
+      .then(response => {
+        setProfileImgUri(response.data.profilPictureIPFS);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+    }
+  }, [wallet.address,profileUri]);
+
+
   return (
     <nav>
       <div className={styles["header-div"]} ref={navbarRef}>
@@ -96,7 +122,7 @@ const MainNavbar = () => {
             </a>
           </div>
           <div className={styles['profile-dropdown-menu-container']}>
-            <div ref={imgRef} className={styles["profile-image"]} onClick={handleClick}></div>
+            <img src={profileImgUri} ref={imgRef} className={styles["profile-image"]} onClick={handleClick}/>
             <div className={styles["profile-dropdown-menu"]}>
 
               {open && (
@@ -104,7 +130,11 @@ const MainNavbar = () => {
 
                   <li className={styles['profile-menu-text-li']} >
                     <div className={styles['profile-dd-icons']}><AiOutlineUser /> </div>
-                    <div className={styles['profile-dd-text']}>Profile</div>
+                    <Link className={styles['dd-link']} href='/Account'>
+                      <div className={styles['profile-dd-text']}>
+                        Profile
+                      </div>
+                    </Link>
                   </li>
 
                   <li className={styles['profile-menu-text-li']} >

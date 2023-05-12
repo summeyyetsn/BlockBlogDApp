@@ -1,0 +1,96 @@
+.account-post-list-container {
+    font-family: sans-serif;
+    /* border: 1px solid #757575; */
+    width: 80%;
+    height: 100%;
+    overflow-y: auto;
+    margin: 20px auto 20px auto;
+
+}
+
+.apl-reading-list-container {
+    border-top: 1px solid rgb(241, 241, 241);
+    border-bottom: 1px solid rgb(241, 241, 241); ;
+    height: 150px;
+    display: flex;
+    /* border-radius: 5px; */
+    margin-bottom:10px;
+    margin-top:40px;
+    cursor:pointer;
+    opacity: 0.7;
+}
+.apl-reading-list-container:hover{
+    /* border-color:#292929; */
+    
+    border-top: 1px solid #afafaf;
+    border-bottom: 1px solid #afafaf;
+    /* background-color: #fafafa; */
+    opacity: 1;
+}
+.apl-reading-list-container:hover .list-container-right{
+    opacity: 1;
+}
+
+.list-container-left {
+
+    /* border: 1px solid #757575; */
+    width: 35%;
+    height: 110px;
+    padding: 20px;
+    /* border-right: 1px solid #afafaf; */
+
+}
+
+.list-container-left-top {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: center;
+}
+
+.list-container-left-top-ppicture {
+    /* border: 1px solid black; */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+
+}
+
+.list-container-left-top-username {
+    /* border: 1px solid orange; */
+    color: #292929;
+    font-size: 14px;
+    line-height: 30px;
+    width: 90%;
+    margin-left: 10px;
+    display: flex;
+}
+
+.list-container-left-middle {
+    /* border: 1px solid gray; */
+    height: 40%;
+    font-size: 19px;
+    line-height: 60px;
+    font-weight: 800;
+    color: #292929;
+    margin-bottom: 15px;
+}
+
+.list-container-left-bottom {
+    /* border: 1px solid purple; */
+    font-size: 14px;
+    line-height: 20px;
+    color: #636363;
+}
+
+.list-container-right {
+    /* border: 1px solid #757575; */
+    background-image: url('../../public/images/—Pngtree—seamless\ memphis\ geometric\ patterns_6862575.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+    width: 65%;
+    height: 150px;
+   
+ 
+}
+
+

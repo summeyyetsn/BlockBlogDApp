@@ -5,7 +5,10 @@ import BlogPostProfile from '@/components/BlogPost/blogPostCard/BlogPostProfile'
 import ProfilAccount from '../components/profilAccount/ProfilAccount';
 import Followers from '../components/followers/Followers';
 import Following from '../components/following/Following';
-import styles from "../styles/Profile.module.css"
+import styles from "../styles/Account.module.css"
+import AccountPostList from '@/components/accountPostList/AccountPostList';
+import AccountBanner from '@/components/accountBanner/AccountBanner';
+import EditProfile from '@/components/editProfile/EditProfile';
 
 
 const Account = () => {
@@ -17,13 +20,15 @@ const Account = () => {
             </header>
             <div className={styles["content"]}>
             <main className={`${styles["main-content"]} ${styles["profilePage-right"]}`}>
-                <BlogPostCard/>
-                {/* <BlogPostProfile/> */}
+                {/* <AccountBanner/>
+                <AccountPostList/> */}
+
+                <EditProfile/>
             </main>
                 <aside className={`${styles["sidebar"]} ${styles["profilePage-left"]}`}>
                     <ProfilAccount/>
-                    {/* <Following/>
-                    <Followers/> */}
+                    <Following/>
+                    {/* <Followers/> */}
                 </aside>
         </div>
     </div>

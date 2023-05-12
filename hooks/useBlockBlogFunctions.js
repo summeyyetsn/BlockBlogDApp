@@ -7,6 +7,7 @@ import blockblogjson from '../artifacts/contracts/BlockBlog.sol/BlockBlog.json';
 const useBlockBlogFunctions = () => {
 
   const [blogPosts, setBlogPosts] = useState([]);
+  const [profileUri, setPofileUri] = useState('');
 
 
   const blockblog = useContract(blockblogaddress, blockblogjson.abi);
@@ -70,14 +71,36 @@ const useBlockBlogFunctions = () => {
   }
 
   const getBlogPost = async () => {
-   
-}
 
-const getAllActivePosts = async () => {
-  const data = await blockblog.getAllActivePosts();
-  setBlogPosts(data);
-  console.log(data);
-}
+  }
+
+  const getAllActivePosts = async () => {
+    const data = await blockblog.getAllActivePosts();
+    setBlogPosts(data);
+    console.log(data);
+  }
+
+  const userProfileUri = async (_postUri) => {
+    if (_postUri) {
+      const txn = await blockblog.userProfileUri(_postUri)
+      await txn.wait();
+    }
+  }
+  // const _userAddress = "0xFABB0ac9d68B0B445fB7357272Ff202C5651694a";
+  const getUserProfileUri = async (_userAddress) => {
+    if (_userAddress) {
+      const data = await blockblog.getUserProfileUri(_userAddress);
+      setPofileUri(data);
+    }
+  }
+
+  const orderCoffee = async (_userAddress) => {
+    const txn = await blockblog.orderCoffee(_userAddress, {value:ethers.utils.parseEther("1")});
+    await txn.wait();
+  }
+
+
+
 
 
 
@@ -93,7 +116,11 @@ const getAllActivePosts = async () => {
     getUserPostList,
     getAllActivePosts,
     getBlogPost,
-    blogPosts
+    blogPosts,
+    userProfileUri,
+    getUserProfileUri,
+    profileUri,
+    orderCoffee
   }
 }
 

@@ -10,12 +10,15 @@ import IPFSTitle from './IPFSTitle';
 import IPFSContent from './IPFSContent';
 import TruncateText from "./TruncateText";
 import Link from 'next/link';
+import axios from 'axios';
 
 const BlogPostCard = () => {
   
+  const [profileImgUri, setProfileImgUri] = useState('');
+  const [userName, setUserName] = useState('');
   
   const OwnerNameMax = 25;
-  const { getAllActivePosts, blogPosts, likeBlogPost, deleteBlogPost, updateListingStatus, updateReadingList } = useBlockBlogFunctions();
+  const { getAllActivePosts, blogPosts, likeBlogPost, deleteBlogPost, updateListingStatus, updateReadingList,getUserProfileUri, profileUri } = useBlockBlogFunctions();
 
   const { wallet } = useWallet();
 
@@ -32,24 +35,27 @@ const BlogPostCard = () => {
   };
 
   useEffect(() => {
+
     wallet.connect();
     if (wallet.address) {
       getAllActivePosts();
     }
-  }, [wallet.address])
 
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+    if (wallet.address && ! profileUri) {
+      getUserProfileUri(wallet.address);
+    }
+    if(profileUri){
+      axios.get(profileUri)
+      .then(response => {
+        setUserName(response.data.name);
+        setProfileImgUri(response.data.profilPictureIPFS);
+      })
+      .catch(error => {
+        console.log(error);
+      });
 
-  const handleTitleChange = (newTitle) => {
-    setTitle(newTitle);
-  };
-
-  const handleContentChange = (newContent) => {
-    setContent(newContent);
-  };
-
-
+    }
+  }, [wallet.address,profileUri])
 
   return (
     <div >
@@ -59,10 +65,10 @@ const BlogPostCard = () => {
             <div className={styles["blogCardContainer"]}>
               <div className={styles["left-div-left"]}>
                 <div className={styles['blog-card-top']}>
-                  <div className={styles['profile-photo']}></div>
+                  <img src={profileImgUri} className={styles['profile-photo']}/>
                   <div className={styles['blog-card-top-center']}>
                     <span className={styles['user-name']}>
-                      <TruncateText text={post.owner} maxLength={OwnerNameMax} />
+                      <TruncateText text={userName} maxLength={OwnerNameMax} />
                     </span>
                     <span className={styles['dot']}><BsDot /></span>
                     <span className={styles["date"]}> {unixToDateString(post.createAt)} </span>
@@ -71,14 +77,16 @@ const BlogPostCard = () => {
                 <Link className={styles['link-style']}
                   href={{
                     pathname: '/PostDetail',
-                    query: { ipfsUri: post.post_uri },
+                    query: { 
+                      ipfsUri: post.post_uri
+                    },
                   }}>
                   <div className={styles["title-content-container"]}>
                     <span className={styles["title"]}>
-                      <IPFSTitle ipfsUri={post.post_uri} onTitleChange={handleTitleChange} />
+                      <IPFSTitle ipfsUri={post.post_uri}  />
                     </span>
                     <span className={styles["text-exp"]}>
-                      <IPFSContent ipfsUri={post.post_uri} onContentChange={handleContentChange} />
+                      <IPFSContent ipfsUri={post.post_uri}  />
                     </span>
                   </div>
                 </Link>

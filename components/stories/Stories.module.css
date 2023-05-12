@@ -1,0 +1,57 @@
+.banner-container{
+    font-family: sans-serif;
+    border-bottom: 1px solid #e2e2e2;
+    width: 80%;
+    margin: 20px auto 60px auto;
+}
+.banner-title{
+    font-size:42px;
+    line-height: 52px;
+    font-weight: 700;
+    color:#292929;
+    padding:25px 0px;
+
+}
+.stories-container{
+    font-family: sans-serif;
+    width: 80%;
+    margin: 20px auto 20px auto;
+    border-bottom:1px solid #e2e2e2;
+    border-right:1px solid #e2e2e2;
+    margin-bottom:50px;
+}
+.stories-container:hover{
+border-color:#686868;
+cursor: pointer;
+}
+.stories-title{
+    font-family: sans-serif;
+    font-size:20px;
+    line-height: 20px;
+    font-weight: bold;
+    color:#292929;
+    margin-bottom:10px;
+}
+.stories-content{
+    font-family: sans-serif;
+    font-size:16px;
+    line-height: 20px;
+    color:#757575;
+    margin-bottom:15px;
+}
+.stories-button-container{
+    width: 15%;
+    height: 40px;
+}
+.stories-button-activePassive{
+    width: 23px;
+    cursor: pointer;
+    padding-bottom:10px;
+    margin-right: 10px;
+}
+.stories-button-deleteEdit{
+    width: 25px;
+    cursor: pointer;
+    padding-bottom:10px;
+    margin-right: 10px;
+}

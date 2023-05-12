@@ -1,0 +1,170 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+Pro&display=swap');
+
+.banner-container{
+    font-family: sans-serif;
+    border-bottom: 1px solid #e2e2e2;
+    width: 80%;
+    margin: 20px auto 60px auto;
+}
+.banner-title{
+    font-size:42px;
+    line-height: 52px;
+    font-weight: 700;
+    color:#292929;
+    padding:25px 0px;
+
+}
+
+.blog-card-frame{
+    /* border:1px solid red; */
+    width: 80%;
+    height: 300px;
+    margin:20px auto 20px auto;
+    border-bottom:1px solid #ececec;
+}
+.left-div-left{
+    width: 75%;
+    float: left;
+    height: 270px;
+}
+.left-div-right{
+    width: 25%;
+    height: 270px;
+    float: left;
+}
+.left-div-right-center{
+    display: flex;
+    justify-content: center;
+    float: right;
+    padding-top: 15px;
+    height: 255px;
+    
+}
+.right-image{
+    background-image: url(../../public/images/kedi.PNG);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 140px;
+    height: 140px;
+}
+.blog-card-top{
+    width: 64%;
+    display: flex;
+    align-items: center; 
+    line-height: 30px;
+    
+}
+.profile-photo{
+    background-image: url(../../public/images/profil.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    margin-right: 10px;
+}
+.blog-card-top-center{
+    align-items: center;
+    display: flex; 
+}
+.user-name{
+    margin-right: 5px;
+    font-size:14px;
+    font-family: sans-serif;
+}
+.dot{
+    color:gray;
+    font-size:14px;
+    margin-right: 5px;
+    font-family: sans-serif;
+    align-items: center; 
+    display: flex;
+}
+.date{
+    color: gray;
+    margin-right: 10px;
+    font-size:14px;
+    font-family: sans-serif;
+}
+.member-star{
+    color:rgb(252, 211, 31);
+    font-size:14px;
+    margin-right: 3px; 
+}
+.date-right{
+    color: gray;
+    font-size:14px;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center; 
+    
+}
+.title{
+    color:#292929;
+    display: block;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: bolder;
+    font-family: sans-serif;
+    margin: 10px 0px;
+}
+
+.text-exp{
+    color: #292929;
+    font-family: 'Source Serif Pro', serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+.post-lw{
+    font-size: 14px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center; 
+}
+.eng-button{
+    font-size:13x;
+    line-height: 20px;
+    font-family: sans-serif;
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    color: black;
+    background-color: rgb(243, 243, 243);
+    margin-right: 5px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+.eng-button:hover{
+    border: none;
+    text-align: center;
+    border-radius: 20px;
+    color: black;
+    background-color: rgb(230,230,230);
+    margin-right: 5px;
+    padding: 4px 10px;
+}
+.icons-container{
+    margin-top: 5px;
+    padding:8px;
+    width: 80px;
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+}
+.icons{
+    width: 20px;
+    font-size: 20px;
+    color: #838181;
+    margin-right: 15px;
+}
+.icons:hover{
+    width: 20px;
+    font-size: 20px;
+    color: #413e3e;
+    margin-right: 15px;
+}

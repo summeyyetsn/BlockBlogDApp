@@ -1,9 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './EditProfile.module.css';
 import axios from 'axios';
-import ProfilPicture from './ProfilPicture';
+import useBlockBlogFunctions from '@/hooks/useBlockBlogFunctions';
+import useWallet from '@/hooks/useWallet';
 
 const EditProfile = () => {
+
+    const {userProfileUri, getUserProfileUri} = useBlockBlogFunctions();
+
     const [profilePicture, setProfilePicture] = useState('');
     const [profilPictureIPFS, setProfilPictureIPFS] = useState('');
 
@@ -13,6 +17,15 @@ const EditProfile = () => {
     const [twitter, setTwitter] = useState('');
     const [youtube, setYoutube] = useState('');
     const [linkedin, setLinkedin] = useState('');
+
+    const {wallet} = useWallet();
+
+    useEffect(() => {
+        if(wallet.address){
+            getUserProfileUri(wallet.address);
+        }
+
+    },[wallet.address])
 
     const handleImageChange = (event) => {
         event.preventDefault();
@@ -39,6 +52,7 @@ const EditProfile = () => {
                         }
                     })
                     setProfilPictureIPFS(response.data[0].path);
+
                 }
                 catch (error) {
                     console.log(error)
@@ -49,9 +63,11 @@ const EditProfile = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         const formData = { name, bio, facebook, twitter, youtube, linkedin, profilPictureIPFS };
         const jsonData = JSON.stringify(formData);
         console.log(jsonData);
+
         if (jsonData) {
             const blob = new Blob([jsonData], { type: 'text/html' });
 
@@ -76,12 +92,15 @@ const EditProfile = () => {
                         },
                     });
 
-                    console.log(response.data[0].path);
+                    
+                    
+                    userProfileUri(response.data[0].path);
                 } catch (error) {
                     console.log(error);
                 }
             };
         }
+        
     };
     return (
         <form onSubmit={handleSubmit} >
@@ -90,9 +109,10 @@ const EditProfile = () => {
 
                 <div className={styles['edit-profile-photo-side']}>
                     <label htmlFor="profile-picture-input">
-                        <img src={profilePicture || '/images/profil.jpg'} className={styles['edit-profile-photo']} />
+                        <img src={profilePicture || '/images/profil-placeholder.png'} className={styles['edit-profile-photo']} />
                     </label>
                     <input id="profile-picture-input" type="file" accept="image/*" onChange={handleImageChange} style={{ display: 'none' }} />
+                    <div className={styles['edit-profile-photo-exp']}>You can update your profile picture by clicking on the image on the side</div>
                 </div>
 
                 <div className={styles['edit-profile-name-side']}>

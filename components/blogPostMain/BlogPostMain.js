@@ -19,7 +19,9 @@ const BlogPostMain = ({ ipfsUri}) => {
 
   return (
     <div>
-      <div className={`${styles["ProseMirror"]} ${styles["blog-post-content-container"]}`} dangerouslySetInnerHTML={{ __html: ipfsData }} />
+      <div className={` ${styles["ProseMirror"]} 
+                        ${styles["blog-post-content-container"]}`} 
+                        dangerouslySetInnerHTML={{ __html: ipfsData }} />
     </div>
   )
 }

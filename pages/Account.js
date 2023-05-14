@@ -9,6 +9,7 @@ import styles from "../styles/Account.module.css"
 import AccountPostList from '@/components/accountPostList/AccountPostList';
 import AccountBanner from '@/components/accountBanner/AccountBanner';
 import EditProfile from '@/components/editProfile/EditProfile';
+import Stories from '@/components/stories/Stories';
 
 
 const Account = () => {
@@ -21,9 +22,10 @@ const Account = () => {
             <div className={styles["content"]}>
             <main className={`${styles["main-content"]} ${styles["profilePage-right"]}`}>
                 {/* <AccountBanner/>
-                <AccountPostList/> */}
+                 <AccountPostList/> */}
 
-                <EditProfile/>
+                {/* <EditProfile/> */}
+                <Stories/>
             </main>
                 <aside className={`${styles["sidebar"]} ${styles["profilePage-left"]}`}>
                     <ProfilAccount/>

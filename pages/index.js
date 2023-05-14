@@ -67,11 +67,11 @@ const index = () => {
       {/* <EditProfile/> */}
       {/* <AccountPostList/> */}
       {/* <BlogPostProfile/> */}
-      <Stories/>
+      {/* <Stories/> */}
       {/* <ReadingList/> */}
 
       {/* @@@........ PAGES ............@@@ */}
-      {/* <Home/> */}
+      <Home/>
       {/* <Writing/> */}
       {/* <Profile/> */}
       {/* <PostDetail/> */}

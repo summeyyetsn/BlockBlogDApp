@@ -157,6 +157,16 @@ contract BlockBlog {
         return postList;
     }
 
+    function getAllPosts() public view returns (BlogPost[] memory) {
+        BlogPost[] memory postList = new BlogPost[](postCount);
+        uint256 currentIndex = 0;
+        for (uint256 i = 1; i < postCount + 1; i++) {
+            postList[currentIndex] = idToBlogPosts[i];
+            currentIndex++;
+        }
+        return postList;
+    }
+
     function getBlogPost(uint _postId) public view notDeleted(_postId) returns (uint, address, uint, uint, string memory){
         BlogPost memory post = idToBlogPosts[_postId]; //
         return (

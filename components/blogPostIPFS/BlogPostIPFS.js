@@ -1,6 +1,6 @@
 import styles from './BlogPostIPFS.module.css';
 import React, { useEffect, useState } from 'react';
-import { BsBookmarkStar, BsBookmarkStarFill, BsThreeDots, BsFillHeartFill, BsHeart } from 'react-icons/bs';
+import { BsBookmarkStar, BsThreeDots, BsHeart } from 'react-icons/bs';
 import { BsDot } from 'react-icons/bs';
 import toolTipStyles from '../common/toolTip/ToolTip.module.css'
 import useBlockBlogFunctions from '@/hooks/useBlockBlogFunctions';
@@ -13,12 +13,19 @@ import Link from 'next/link';
 import axios from 'axios';
 
 const BlogPostCard = () => {
-  
+
   const [profileImgUri, setProfileImgUri] = useState('');
+  const [bio, setBio] = useState('');
   const [userName, setUserName] = useState('');
-  
+  const [facebook, setFacebook] = useState('');
+  const [twitter, setTwitter] = useState('');
+  const [youtube, setYoutube] = useState('');
+  const [linkedin, setLinkedin] = useState('');
+
+  const [ownerAddress, setOwnerAddress] = useState();
+
   const OwnerNameMax = 25;
-  const { getAllActivePosts, blogPosts, likeBlogPost, deleteBlogPost, updateListingStatus, updateReadingList,getUserProfileUri, profileUri } = useBlockBlogFunctions();
+  const { getAllActivePosts, activeBlogPosts, likeBlogPost, deleteBlogPost, updateListingStatus, updateReadingList, getUserProfileUri, profileUri } = useBlockBlogFunctions();
 
   const { wallet } = useWallet();
 
@@ -41,31 +48,36 @@ const BlogPostCard = () => {
       getAllActivePosts();
     }
 
-    if (wallet.address && ! profileUri) {
+    if (wallet.address && !profileUri) {
       getUserProfileUri(wallet.address);
     }
-    if(profileUri){
+    if (profileUri) {
       axios.get(profileUri)
-      .then(response => {
-        setUserName(response.data.name);
-        setProfileImgUri(response.data.profilPictureIPFS);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .then(response => {
+          setUserName(response.data.name);
+          setBio(response.data.bio);
+          setProfileImgUri(response.data.profilPictureIPFS);
+          setFacebook(response.data.facebook);
+          setTwitter(response.data.twitter);
+          setYoutube(response.data.youtube);
+          setLinkedin(response.data.linkedin);
+        })
+        .catch(error => {
+          console.log(error);
+        });
 
     }
-  }, [wallet.address,profileUri])
+  }, [wallet.address, profileUri])
 
   return (
     <div >
-      {blogPosts?.map((post) => (
+      {activeBlogPosts?.map((post) => (
         post.postId != 0 ? (
           <div key={post.postId} className={styles['blog-card-frame']}>
             <div className={styles["blogCardContainer"]}>
               <div className={styles["left-div-left"]}>
                 <div className={styles['blog-card-top']}>
-                  <img src={profileImgUri} className={styles['profile-photo']}/>
+                  <img src={profileImgUri} className={styles['profile-photo']} />
                   <div className={styles['blog-card-top-center']}>
                     <span className={styles['user-name']}>
                       <TruncateText text={userName} maxLength={OwnerNameMax} />
@@ -77,16 +89,24 @@ const BlogPostCard = () => {
                 <Link className={styles['link-style']}
                   href={{
                     pathname: '/PostDetail',
-                    query: { 
-                      ipfsUri: post.post_uri
+                    query: {
+                      ipfsUri: post.post_uri,
+                      userName: userName,
+                      bio: bio,
+                      profileImgUri: profileImgUri,
+                      facebook: facebook,
+                      twitter: twitter,
+                      youtube: youtube,
+                      linkedin: linkedin,
+                      owner: post.owner,
                     },
                   }}>
                   <div className={styles["title-content-container"]}>
                     <span className={styles["title"]}>
-                      <IPFSTitle ipfsUri={post.post_uri}  />
+                      <IPFSTitle ipfsUri={post.post_uri} />
                     </span>
                     <span className={styles["text-exp"]}>
-                      <IPFSContent ipfsUri={post.post_uri}  />
+                      <IPFSContent ipfsUri={post.post_uri} />
                     </span>
                   </div>
                 </Link>
@@ -138,7 +158,7 @@ const BlogPostCard = () => {
           </div>
         ) : null
       ))}
-      {/* {<table>
+      {/* <table>
         <thead>
           <tr>
             <th>  Post Id</th>
@@ -172,7 +192,7 @@ const BlogPostCard = () => {
           ))}
 
         </tbody>
-      </table>} */}
+      </table> */}
     </div>
 
 

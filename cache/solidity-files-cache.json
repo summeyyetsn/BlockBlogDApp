@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\summe\\Desktop\\BlockBlog\\blockblog\\contracts\\BlockBlog.sol": {
-      "lastModificationDate": 1683837973400,
-      "contentHash": "6d78fde18906bea4438a0f01533f7798",
+      "lastModificationDate": 1684082928718,
+      "contentHash": "9962857b130bf7f20879c47122f69f84",
       "sourceName": "contracts/BlockBlog.sol",
       "solcConfig": {
         "version": "0.8.18",

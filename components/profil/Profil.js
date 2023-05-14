@@ -6,39 +6,11 @@ import useBlockBlogFunctions from '@/hooks/useBlockBlogFunctions';
 import useWallet from '@/hooks/useWallet';
 import axios from 'axios';
 
-const Profil = () => {
+const Profil = ({ userName, bio, profileImgUri}) => {
 
   const { getUserProfileUri, profileUri} = useBlockBlogFunctions();
 
-  const [profileImgUri, setProfileImgUri] = useState('');
-  const [userName, setUserName] = useState('');
-  const [bio, setBio] = useState('');
-
   const { wallet } = useWallet();
-
-  
-
-  useEffect(() => {
-    if (wallet.address && ! profileUri) {
-      getUserProfileUri(wallet.address);
-    }
-    if(profileUri){
-      axios.get(profileUri)
-      .then(response => {
-        setUserName(response.data.name);
-        setBio(response.data.bio);
-        setProfileImgUri(response.data.profilPictureIPFS);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
-    }
-  }, [wallet.address,profileUri]);
-
-
-
-
 
   return (
     <div>
